@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ants>
+    <!-- example begin -->
+    <example>
+        <!-- 业务名称(对应数据库的表名),下面维度和指标的字段的顺序,就是表中字段的顺序 -->
+        <!-- 业务名称生成真实的数据表时有三部分组成,所有业务名称不能重复,规则如下:"t_"+"app.xml中的namespace"+"_name的属性值" ,下面的配置生成的表名是:t_test_net-->
+        <tables name="net">
+            <!-- desc:数据字段描述; -->
+            <!-- name:对应数据表的字段名称; -->
+            <!-- source:对应源数据中的属性名称;可选属性,如果没有则与name取值相同 -->
+            <!-- valueType:字段类型 :string,long,double,timestamp; -->
+            <!-- type:区分维度和指标,值是dimension,metric; 另还有一个特殊的值hidden,表示此属性为辅助属性,不做存储使用; -->
+            <!-- expr:计算函数:sum, max, min, sumif, countif, hyperlog等; 支持函数表达式,且表达式中所需要的字段必须在当前table标签内存在-->
+            <!-- expr:计算函数:median, median90, 中位数和90分位数, 支持函数表达式, 暂只支持在基线数据表中使用-->
+            <!-- expr:计算函数:hyperlog, 用于计算uv使用, 支持函数表达式, 暂只支持单维度计算,主要用于计算日活和月活-->
+            <!-- expr:计算函数:udf,udf1,udf2,udf3,udf4,udf5, 自定义插件中实现的函数, 因插件算法自己实现,所以不支持函数表达式-->
+            <field desc="字段描述" name="t_aa" source="aaa" valueType="string" type="dimension"/>
+            <field desc="字段描述" name="t_bb" source="bbb" valueType="string" type="dimension"/>
+            <field desc="字段描述" name="t_cc" source="ccc" valueType="double" type="hidden" expr="sum"/>
+            <field desc="字段描述" name="t_dd" source="ddd" valueType="double" type="metric" expr="max"/>
+            <field desc="字段描述" name="t_ee" source="eee" valueType="double" type="metric" expr="udf"/>
+            <field desc="字段描述" name="t_ff" source="fff" valueType="long"   type="metric" expr="countif$(t_dd=10|t_aa='test')"/>
+            <field desc="字段描述" name="t_gg" source="ggg" valueType="double" type="metric" expr="sum$((t_aa-t_bb)*t_cc)"/>
+        </tables>
+    </example>
+    <!-- example end -->
+    <!-- 1.业务表 -->
+    <schema>
+        <!--相关业务表配置在./conf/shema/目录下 -->
+    </schema>
+
+    <!-- 2.tables标签内业务数据字段取值的关系描述, type:表示数据格式,取值有json和xml两种 -->
+    <!-- path: 原始数据取值的路径, text值: tables的field标签里的source名称,注意保证名称的唯一性 -->
+    <data-desc type="json">
+        <!-- 通过此关系,可以知道appId的值从json格式里的"h.ai"路径取到 -->
+        <field path="data.h.ai">appId</field>
+        <field path="data.h.di.av">appVersion</field>
+        <field path="data.h.di.ov">osVersion</field>
+        <field path="data.h.di.cc">city</field>
+        <field path="data.h.di.di">clientId</field>
+        <field path="data.udr.d.ci.cb">causedBy</field>
+        <field path="data.udr.d.ci.en">crashType</field>
+        <field path="data.udr.d.ci.ed">errordumpCode</field>
+        <field path="data.udr.d.ci.am">accessMode</field>
+        <field path="data.h.di.bn">brandId</field>
+        <field path="monitorTime">firstTime</field>
+        <field path="monitorTime">lastTime</field>
+    </data-desc>
+
+</ants>

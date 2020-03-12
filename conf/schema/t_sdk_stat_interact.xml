@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <tables name="stat_interact">
+    <field name="appId" source="appId" valueType="long" type="dimension"/>
+    <field name="appVersion" source="appVersion" valueType="string" type="dimension"/>
+    <field name="osVersion" source="osVersion" valueType="string" type="dimension"/>
+    <field name="brandId" source="brandId" valueType="string" type="dimension"/>
+    <field name="viewName" source="viewName" valueType="string" type="dimension"/>
+    <field name="firstTime" source="firstTime" valueType="timestamp" type="hidden" expr="min"/>
+    <field name="lastTime" source="lastTime" valueType="timestamp" type="metric" expr="max"/>
+    <field name="st" source="startTime" valueType="long" type="hidden" expr="max"/>
+    <field name="" source="endTime" valueType="long" type="hidden" expr="max"/>
+    <field name="interactTime" source="interactTime" valueType="double" type="metric" expr="sum$(et - st)"/>
+    <field name="interactNum" source="interactNum" valueType="long" type="metric" expr="sum$(1)"/>
+</tables>
+</schema>

@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema>
-<tables name="sdk_stat_crash">
-<!-- 内置字段若crah不存在 取heade 需要name转id -->
-<field desc="APP版本" name="app_ver_id" source="crashAppVerID" valueType="long" type="dimension"/>
-<!-- 内置字段需要name转id -->
-<field desc="APPID" name="appid" source="appid" valueType="long" type="dimension"/>
-<!-- 内置字段通过band+model+patarn缓存转换为id -->
-<field desc="品牌ID" name="brand_id" source="brandId" valueType="long" type="dimension"/>
-<!-- 内置字段 通过根据appid 设备及堆栈信息转换成code -->
-<field desc="崩溃问题ID" name="crash_event_id" source="eventCode" valueType="long" type="dimension"/>
-<!-- 内置字段 通过crashtype keyfuction casueby组合而成 -->
-<field desc="崩溃问题" name="crash_event" source="event" valueType="string" type="dimension"/>
-<!-- 内置字段通过方法转换code -->
-<field desc="崩溃类型id" name="crash_type_code" source="crashTypeCode" valueType="long" type="dimension"/>
-<!-- 取值操作 长度截取 -->
-<field desc="崩溃类型" name="crash_type" source="crashType" valueType="string" type="dimension"/>
-<!-- 内置字段通过os缓存转换为id -->
-<field desc="操作系统ID" name="os_id" source="osId" valueType="long" type="dimension"/>
-<field desc="崩溃次数" name="crash_num" source="crash_num" valueType="long" type="metric" expr="sum$(1)"/>
-<field desc="最早发生时间" name="first_time" source="monitorTime" valueType="timestamp" type="metric" expr="min"/>
-<field desc="最晚发生时间" name="last_time" source="monitorTime" valueType="timestamp" type="metric" expr="max"/>
-</tables>
+    <!-- name: 表示数据表名称; part: 可选属性, 表示同张数据表的组成部分 -->
+    <!-- 注:往同一张表中插入不同维度数据时,part的取值不能重复,取值为大于0的正整数 -->
+    <!-- 注:part的值会存入数据表的"type"字段中,用于区分不同维度 -->
+    <tables name="stat_crash" part="1">
+        <field name="appId" source="appId" valueType="long" type="dimension"/>
+        <field name="appVersion" source="appVersion" valueType="string" type="dimension"/>
+        <field name="osVersion" source="osVersion" valueType="string" type="dimension"/>
+        <field name="viewName" source="viewName" valueType="string" type="dimension"/>
+        <field name="crashType" source="crashType" valueType="string" type="dimension"/>
+        <field name="causedBy" source="causedBy" valueType="string" type="dimension"/>
+        <field name="errordumpCode" source="errordumpCode" valueType="long" type="dimension"/>
+        <field name="accessMode" source="accessMode" valueType="long" type="dimension"/>
+        <field name="firstTime" source="firstTime" valueType="timestamp" type="metric" expr="min"/>
+        <field name="lastTime" source="lastTime" valueType="timestamp" type="metric" expr="max"/>
+        <field name="crashCount" source="" valueType="long" type="metric" expr="sum$(1)"/>
+        <field name="customCount" source="" valueType="long" type="metric" expr="countif$(accessMode=2&crashType='NullPointerException')"/>
+    </tables>
+    <tables name="stat_crash" part="2">
+        <field name="appId" source="appId" valueType="long" type="dimension"/>
+        <field name="appVersion" source="appVersion" valueType="string" type="dimension"/>
+        <field name="brandId" source="brandId" valueType="string" type="dimension"/>
+        <field name="viewName" source="viewName" valueType="string" type="dimension"/>
+        <field name="crashType" source="crashType" valueType="string" type="dimension"/>
+        <field name="causedBy" source="causedBy" valueType="string" type="dimension"/>
+        <field name="errordumpCode" source="errordumpCode" valueType="long" type="dimension"/>
+        <field name="accessMode" source="accessMode" valueType="long" type="dimension"/>
+        <field name="firstTime" source="firstTime" valueType="timestamp" type="metric" expr="min"/>
+        <field name="lastTime" source="lastTime" valueType="timestamp" type="metric" expr="max"/>
+        <field name="crashCount" source="" valueType="long" type="metric" expr="sum$(1)"/>
+        <field name="customCount" source="" valueType="long" type="metric" expr="countif$(accessMode=5)"/>
+    </tables>
 </schema>
