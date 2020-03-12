@@ -70,9 +70,9 @@
     <db>
         <property name="driver.class" value="com.mysql.jdbc.Driver"/>
         <property name="url"
-                  value="jdbc:mysql://devtest.ibr.cc:30092/test?rewriteBatchedStatements=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull"/>
-        <property name="username" value="test"/>
-        <property name="password" value="Mysql_123"/>
+                  value="jdbc:mysql://*.*.*.*:30092/test?rewriteBatchedStatements=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull"/>
+        <property name="username" value="******"/>
+        <property name="password" value="******"/>
     </db>
 
     <!-- 5.etl插件配置 放app.xml里 -->
