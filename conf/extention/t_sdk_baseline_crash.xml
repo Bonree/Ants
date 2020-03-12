@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <!-- name: 表示数据表名称;  -->
+    <tables name="baseline_crash">
+        <field name="appId" source="appId" valueType="long" type="dimension"/>
+        <field name="crashCount" source="" valueType="long" type="metric" expr="median$(1)"/>
+    </tables>
+</schema>

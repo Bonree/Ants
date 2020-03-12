@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <tables name="T_BRO_WEB_LOG_RECORD" granule="false">
+        <field name="APPID" source="" valueType="long" type="dimension"/>
+        <field name="PVID" source="" valueType="string" type="dimension"/>
+        <field name="RECORD" source="" valueType="string" type="dimension"/>
+    </tables>
+</schema>

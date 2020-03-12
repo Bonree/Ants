@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <tables name="BRO_STAT_ERROR_AJAX">
+        <field name="APPID" source="" valueType="long" type="dimension"/>
+        <field name="TYPE" source="" valueType="long" type="dimension"/>
+        <field name="FIRST_VALUE" source="" valueType="long" type="dimension"/>
+        <field name="SECOND_VALUE" source="" valueType="double" type="dimension"/>
+        <field name="THIRD_VALUE" source="" valueType="long" type="dimension"/>
+        <field name="PAGECODE" source="" valueType="long" type="dimension"/>
+        <field name="AJAXCODE" source="" valueType="long" type="dimension"/>
+        <field name="AJAX_ERROR_NUM" source="" valueType="long" type="metric" expr="sum"/>
+    </tables>
+</schema>

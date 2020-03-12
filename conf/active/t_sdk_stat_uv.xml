@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <!-- name: 表示数据表名称; part: 可选属性, 表示同张数据表的组成部分 -->
+    <!-- hyperlog$(clientId) 表示使用clientId来统计uv,hyperlog$(statMainId) 表示用statMainId来统计uv-->
+    <!-- 注:1.往同一张表中插入不同维度数据,part的取值不能重复-->
+    <!-- 注:2.由于是特殊计算业务,每张表只允许有一个维度和一个指标,辅助属性(type=hidden)除外-->
+    <!-- 注:3.part的值会存入数据表的"type"字段中,用于区分不同维度 -->
+    <tables name="stat_uv" part="1">
+        <field name="appId" source="appId" valueType="long" type="dimension"/>
+        <field name="clientId" source="clientId" valueType="string" type="hidden"/>
+        <field name="uv" source="" valueType="long" type="metric" expr="hyperlog$(clientId)"/>
+    </tables>
+    <tables name="stat_uv" part="2">
+        <field name="city" source="city" valueType="long" type="dimension"/>
+        <field name="clientId" source="clientId" valueType="string" type="hidden"/>
+        <field name="uv" source="" valueType="long" type="metric" expr="hyperlog$(clientId)"/>
+    </tables>
+</schema>

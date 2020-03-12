@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <tables name="BRO_STAT_KEY_SNAPSHOT" granule="false">
+        <field name="APPID" source="" valueType="long" type="dimension"/>
+        <field name="BLOCK_TIME" source="" valueType="double" type="dimension"/>
+        <field name="BROWSER_ID" source="" valueType="long" type="dimension"/>
+        <field name="BROWSER_VER_ID" source="" valueType="double" type="dimension"/>
+        <field name="DISTRICT" source="" valueType="long" type="dimension"/>
+        <field name="DOWN_TIME" source="" valueType="double" type="dimension"/>
+        <field name="FETCH_TIME" source="" valueType="double" type="dimension"/>
+        <field name="FIRST_BYTE_TIME" source="" valueType="double" type="dimension"/>
+        <field name="HTML_DNS_NUM" source="" valueType="long" type="dimension"/>
+        <field name="HTML_DNS_TIME" source="" valueType="double" type="dimension"/>
+        <field name="HTML_SSL_NUM" source="" valueType="long" type="dimension"/>
+        <field name="HTML_SSL_TIME" source="" valueType="double" type="dimension"/>
+        <field name="HTML_TCP_NUM" source="" valueType="long" type="dimension"/>
+        <field name="HTML_TCP_TIME" source="" valueType="double" type="dimension"/>
+        <field name="IPSTR" source="" valueType="string" type="dimension"/>
+        <field name="KEYCODE" source="" valueType="long" type="dimension"/>
+        <field name="NETSERVICE_ID" source="" valueType="long" type="dimension"/>
+        <field name="OS_ID" source="" valueType="long" type="dimension"/>
+        <field name="OS_VER_ID" source="" valueType="double" type="dimension"/>
+        <field name="PAGE_CODE" source="" valueType="long" type="dimension"/>
+        <field name="PARENTCODE" source="" valueType="long" type="dimension"/>
+        <field name="REDIRECT_TIME" source="" valueType="double" type="dimension"/>
+        <field name="REQUEST_NUM" source="" valueType="long" type="dimension"/>
+        <field name="REQUEST_TIME" source="" valueType="double" type="dimension"/>
+        <field name="RESPONSE_TIME" source="" valueType="double" type="dimension"/>
+        <field name="TOTAL_TIME" source="" valueType="double" type="dimension"/>
+        <field name="TYPE" source="" valueType="long" type="dimension"/>
+        <field name="IS_CROSS_DOMAIN" source="" valueType="long" type="dimension"/>
+        <field name="USERAGENT" source="" valueType="string" type="dimension"/>
+        <field name="BR_RESP_GUID" source="" valueType="string" type="dimension"/>
+        <field name="UK" source="" valueType="string" type="dimension"/>
+        <field name="PVID" source="" valueType="string" type="dimension"/>
+    </tables>
+</schema>

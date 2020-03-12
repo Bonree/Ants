@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <tables name="BRO_ERROR_JS">
+        <field name="APPID" source="" valueType="long" type="dimension"/>
+        <field name="JSFILECODE" source="" valueType="long" type="dimension"/>
+        <field name="ERRORCODE" source="" valueType="long" type="dimension"/>
+        <field name="ERROR_INFO" source="" valueType="string" type="dimension"/>
+        <field name="BROWSER_ID" source="" valueType="long" type="dimension"/>
+        <field name="BROWSER_VER_ID" source="" valueType="double" type="dimension"/>
+        <field name="PAGECODE" source="" valueType="long" type="dimension"/>
+        <field name="ERROR_NUM" source="" valueType="long" type="metric" expr="sum"/>
+    </tables>
+</schema>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ants>
+    <data-desc type="json">
+        <!-- 内置字段 因为deviceInfo该路径为array  -->
+        <field path="h.di.di">IEMI</field>
+        <field path="udr.d.l.ds.mi">ILUserName</field>
+        <field path="udr.d.i.ds.mi">IUserName</field>
+        <field path="udr.d">SELF_CRASH_NUM</field>
+        <!-- 内置字段 0/1 根据statmainId 去重 统计次数  -->
+        <field path="udr.d">SelfCrashVisitNum</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr.nt">accessModel</field>
+        <!-- 内置字段 0/1 根据statmainId 去重 统计次数  -->
+        <field path="udr.d">anrVisit</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr">appFirstTime</field>
+        <field path="h.di.av">appVerId</field>
+        <!-- 内置字段 0/1 根据statmainId 去重 统计次数  -->
+        <field path="udr.d">appVisit</field>
+        <!-- 内置字段 需要name转id  -->
+        <field path="h.ai">appid</field>
+        <field path="h.ai">appMD5</field>
+        <!-- 内置字段 汇总值 根据error+resourceType=1+iswebview=false 累加包的个数 开关值 有错误不进行性能计算  -->
+        <field path="udr.d">areErrorNum</field>
+        <!-- 内置字段 汇总值 根据error+resourceType=1+iswebview 累加包的个数 开关值 有错误不进行性能计算  -->
+        <field path="udr.d">arewebNum</field>
+        <!-- 内置字段 汇总值 resourceType = 1 总下载大小之和  -->
+        <field path="udr.d">atDownSize</field>
+        <!-- 内置字段 汇总值 resourceType = 1非webview且非socket  dns+tcp+ssl+response时间之和   -->
+        <field path="udr.d">atFirPackageTimeWeb</field>
+        <!-- 内置字段-->
+        <field path="udr.d">atFirPackageTime</field>
+        <!-- 内置字段 汇总值 非webview请求且为socket请求 包个数累加  -->
+        <field path="udr.d">atReqNumScok</field>
+        <!-- 内置字段 汇总值 根据resourceType=1并且 ishttp=true并且iswebview=true 包的个数  -->
+        <field path="udr.d">atReqNumWeb</field>
+        <!-- 内置字段 汇总值 resourceType = 1非webview且非socket  包个数  -->
+        <field path="udr.d">atReqNum</field>
+        <!-- 内置字段 汇总值 resourceType = 1非webview且非socket  请求时间慢的包个数  -->
+        <field path="udr.d">atReqSlowNum</field>
+        <!-- 内置字段 汇总值 resourceType = 1 总请求时间之和  -->
+        <field path="udr.d">atTotalTime</field>
+        <!-- 内置字段通过band+model+patarn缓存转换为id  -->
+        <field path="h.di.bn">brandId</field>
+        <!-- 内置字段 汇总值 resourceType=3累计下载大小  -->
+        <field path="udr.d">cdnDownSize</field>
+        <!-- 内置字段 汇总值 resourceType=3 累计下载时间  -->
+        <field path="udr.d">cdnDownTime</field>
+        <!-- 内置字段 汇总值 根据error+resourceType=3+iswebview=false 累加包的个数 开关值 有错误不进行性能计算  -->
+        <field path="udr.d">cdnErrorNum</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr">cdnId</field>
+        <!-- 内置字段 汇总值 resourceType =3 issocket =true 累计包的个数  -->
+        <field path="udr.d">cdnReqNumScok</field>
+        <!-- 内置字段 汇总值 esourceType=3 isHttp=true 累计包的个数  -->
+        <field path="udr.d">cdnReqNum</field>
+        <!-- 内置字段 汇总值 下载速度小于配置 累计包的个数  -->
+        <field path="udr.d">cdnReqSlowNum</field>
+        <!-- 内置字段 汇总值 resourceType = 3 累计总体时间  -->
+        <field path="udr.d">cdnTotalTime</field>
+        <!-- 内置字段 汇总值 根据error+resourceType=3+iswebview=true 累加包的个数 开关值 有错误不进行性能计算  -->
+        <field path="udr.d">cdnWebErrorNum</field>
+        <!-- 内置字段若crah不存在 取heade 需要name转id  -->
+        <field path="udr.d.ci.av">crashAppVerID</field>
+        <!-- 内置字段通过方法转换code  -->
+        <field path="udr.d.ci.en">crashTypeCode</field>
+        <!-- 取值操作 长度截取  -->
+        <field path="udr.d.ci.en">crashType</field>
+        <field path="udr.d.ci.ds.mi">crashUserName</field>
+        <field path="udr.d">crashVisit</field>
+        <!-- 内置  -->
+        <field path="h.dip">district</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr">domain</field>
+        <field path="udr.d.nr.ei">errorId</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr.ei">errorType</field>
+        <!-- 内置字段 通过根据appid 设备及堆栈信息转换成code  -->
+        <field path="udr.d.ci.ed">eventCode</field>
+        <!-- 内置字段 通过crashtype keyfuction casueby组合而成  -->
+        <field path="udr.d.ci.ed">event</field>
+        <!-- 内置tcp+ssl+dns+response  -->
+        <field path="udr.d.nr">firstPackage</field>
+        <!-- 内置tcp+ssl+dns+response+downtime  -->
+        <field path="udr.d.nr">totalTime</field>
+        <field path="udr.d.mt">firstTime</field>
+        <field path="udr.d.i.mi.n">fullMethod</field>
+        <!-- 内置字段 需要name转id  -->
+        <field path="udr.d.i.mi.n">functionCode</field>
+        <!-- 内置字段 需要method跟thread交集取值  -->
+        <field path="udr.d.i.mi.t">functionType:</field>
+        <field path="udr.d">gAnrNum</field>
+        <field path="udr.d">gCrashNum</field>
+        <field path="udr.d">gLagNum</field>
+        <field path="udr.d.nr.ti">host</field>
+        <!-- 内置字段 通过方法结束时间-视图开始时间  -->
+        <field path="udr.d.i">interactTime</field>
+        <!-- 内置字段 0/1 根据statmainId 去重 统计次数  -->
+        <field path="udr.d">interactVisit</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr">isDnsHijack</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr">isLinkHijack</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr">keyUrlCode</field>
+        <field path="udr.d.nr">urlcode</field>
+        <!-- 内置字段 0/1 根据statmainId 去重 统计次数  -->
+        <field path="udr.d">lagVisit</field>
+        <field path="udr.d.mt">lastTime</field>
+        <field path="udr.d.ar">launchNum1</field>
+        <field path="udr.d.ar">launchSlowNum2</field>
+        <field path="udr.d.ar">launchSlowNum3</field>
+        <field path="udr.d.ar">launchSlowNum4</field>
+        <field path="udr.d.ar">launchSlowNum5</field>
+        <field path="udr.d.ar">launchSlowNum</field>
+        <!-- 内置字段 单位需要变成s  -->
+        <field path="udr.d.ar.lt">launchTime</field>
+        <!-- 内置字段直接+1  -->
+        <field path="udr.d">linkHijackVisit</field>
+        <field path="udr.d.nr.dt">lossDnsTime</field>
+        <field path="udr.d.nr.rds">lossDownSize</field>
+        <field path="udr.d.nr.dti">lossDownTime</field>
+        <field path="udr.d.nr.rti">lossResponseTime</field>
+        <field path="udr.d.nr.sti">lossSslTime</field>
+        <field path="udr.d.nr.ct">lossTcpTime</field>
+        <!-- 内置字段 去掉类获取方法并需要name转id  -->
+        <field path="udr.d.i.mi.n">methodId</field>
+        <field path="udr.d.mt">monitorTime</field>
+        <!-- 内置  -->
+        <field path="h.dip">netserviceId</field>
+        <!-- 内置字段 汇总值 根据url判断dns的劫持包的个数 开关值若存在劫持则不统计性能  -->
+        <field path="udr.d">oDnsHijackNum</field>
+        <!-- 内置字段 汇总值 根据dnstime不等于0的包个数累计  -->
+        <field path="udr.d">oDnsNum</field>
+        <!-- 内置字段 汇总值 根据错误errorType为http类型  -->
+        <field path="udr.d">oHttpErrorNum</field>
+        <!-- 内置字段 汇总值 根据errorType分类累加包  -->
+        <field path="udr.d">oNetErrorNum</field>
+        <!-- 内置字段 汇总字段 慢交互包的个数  -->
+        <field path="udr.d">oSInteractNum</field>
+        <!-- 内置字段 汇总字段 名称不为配置指定视图 根据视图启动时间与配置做比判断是否为慢视图  -->
+        <field path="udr.d">oSViewLaunchNum</field>
+        <!-- 内置字段 汇总字段 名称不为配置指定视图  -->
+        <field path="udr.d">oViewLaunchNum</field>
+        <!-- 内置字段 汇总值 单位s 名称不为配置指定视图并且大于指定配置值  -->
+        <field path="udr.d">oViewLaunch</field>
+        <field path="h.di.ov">osId</field>
+        <!-- 内置字段  -->
+        <field path="udr.d.nr.ru">pagecode</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr.ru">requestType</field>
+        <!-- 内置  -->
+        <field path="udr.d.nr">resourceTypeNr</field>
+        <field path="udr.d.nr.dti">slowDnsTime</field>
+        <field path="udr.d.nr.rds">slowDownSize</field>
+        <field path="udr.d.nr.dti">slowDownTime</field>
+        <field path="udr.d.nr.rti">slowServiceResponseTime</field>
+        <field path="udr.d.nr.sti">slowSslTime</field>
+        <field path="udr.d.nr.ct">slowTcpTime</field>
+        <field path="udr.d.i.lr.f">smooth</field>
+        <!-- 内置字段 汇总值 根据 resourceType = 2 统计下载大小之和  -->
+        <field path="udr.d">thDownSize</field>
+        <!-- 内置字段 汇总值 根据error+resourceType=2+iswebview=false 累加包的个数 开关值 有错误不进行性能计算  -->
+        <field path="udr.d">thErrorNum</field>
+        <!-- 内置字段 汇总值 根据resourceType=2 并且ishttp=true并且iswebview=true 包的个数  -->
+        <field path="udr.d">thFirPackageTimeWeb</field>
+        <!-- 内置字段 汇总值 根据 resouceType = 2 非webview 非socket dns+tcp+ssl+response 时间累加值  -->
+        <field path="udr.d">thFirPackageTime</field>
+        <!-- 内置字段 汇总值 根据resourceType=2 非webview socket=true包的个数  -->
+        <field path="udr.d">thReqNumScok</field>
+        <!-- 内置字段 汇总值 根据resourceType=2 非webview 非socket 包的个数  -->
+        <field path="udr.d">thReqNum</field>
+        <!-- 内置字段 汇总值 根据 resouceType = 2 非webview 非socket 对比缓存配置慢的包的个数  -->
+        <field path="udr.d">thReqSlowNum</field>
+        <!-- 内置字段 汇总值 根据 resourceType = 2 总体响应时间之和  -->
+        <field path="udr.d">thTotalTime</field>
+        <!-- 内置字段 汇总值 根据error+resourceType=2+iswebview=true 累加包的个数 开关值 有错误不进行性能计算  -->
+        <field path="udr.d">thWebErrorNum</field>
+        <!-- 内置字段来源子app 配置信息  -->
+        <field path="conf">threshold</field>
+        <field path="udr.d.i.lr.f">totalSmooth</field>
+        <!-- "首包时间  -->
+        <field path="netresult">udr.d.nr</field>
+        <!-- 内置 存在转换关系  -->
+        <field path="udr.d.nr.ru">url</field>
+        <!-- 内置字段 需要根据startTime匹配并根据name转id  -->
+        <field path="udr.d.ar.an">viewId</field>
+        <field path="udr.d.l.ar.an">lagViewId</field>
+        <field path="udr.d.nr">isHijack</field>
+        <field path="h.dip">cityId</field>
+        <field path="udr.d.we">isSlow</field>
+        <field path="udr.d.wi.url">webViewMimeFlag</field>
+        <field path="udr.d.wi.url">webviewDomainCode</field>
+        <field path="udr.d.wi.url">webviewPageCode</field>
+        <field path="udr.d.wi.url">webViewDomain</field>
+        <field path="udr.d.wi.wpt">h5HtmlDownTime</field>
+        <field path="udr.d.wi.wpt">h5DomBuildTime</field>
+        <field path="udr.d.wi.wpt">h5ResourceLoadTime</field>
+        <field path="udr.d.wi.wpt.lee">h5TotelTime</field>
+        <field path="udr.d.wi.wpt.rsps">h5FirByteTime</field>
+        <field path="udr.d.wi">pageErrorNum</field>
+        <field path="udr.d.wi.jen">jsError</field>
+        <field path="udr.d">oH5RightNum</field>
+        <field path="udr.d">oH5SlowNum</field>
+        <field path="udr.d">oH5ErrorNum</field>
+        <field path="udr.d">oH5JSErrorNum</field>
+        <field path="udr.d.i.lr.f">lagFps</field>
+        <field path="udr.d.i.lr.f">lagFpsD</field>
+    </data-desc>
+</ants>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+<tables name="sdk_stat_combination_city">
+<field desc="APP版本" name="app_ver_id" source="appVerId" valueType="long" type="dimension"/>
+<!-- 内置字段 需要name转id -->
+<field desc="APPID" name="appid" source="appid" valueType="long" type="dimension"/>
+<!-- 内置 -->
+<field desc="城市" name="city_id" source="cityId" valueType="long" type="dimension"/>
+<!-- 内置 -->
+<field desc="地域" name="district" source="district" valueType="long" type="dimension"/>
+<!-- 内置 -->
+<field desc="资源类型：1：自营  2：第三方" name="resource_type" source="resourceTypeNr" valueType="long" type="dimension"/>
+<!-- 内置 -->
+<field desc="appconfig的firsttime" name="app_first_time" source="appFirstTime" valueType="double" type="hidden"/>
+<!-- 内置  -->
+<field desc="错误类型:0:normal;1:http;2:dns;3:tcp;4:ssl;5:js;6:other" name="errorType" source="errorType" valueType="long" type="hidden"/>
+<!-- 内置tcp+ssl+dns+response -->
+<field desc="" name="first_package" source="firstPackage" valueType="double" type="hidden"/>
+<!-- 内置 -->
+<field desc="0:http 1:socket 2:other" name="requestType" source="requestType" valueType="long" type="hidden"/>
+<field desc="dns时间;（单位S）" name="dns_time" source="lossDnsTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+<field desc="dns次数" name="dns_num" source="dnsNum" valueType="long" type="metric" expr="countif$(errorType=0&requestType=0&dns_time>0)"/>
+<field desc="下载大小;（单位KB）" name="down_size" source="lossDownSize" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+<field desc="下载时间;（单位S）" name="down_time" source="lossDownTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+<field desc="http总错误请求次数" name="error_num" source="errorNum" valueType="long" type="metric" expr="countif$(requestType=0&errorType>0)"/>
+<field desc="http总正确请求次数" name="request_num" source="requestNum" valueType="long" type="metric" expr="countif$(errorType=0&requestType=0)"/>
+<field desc="服务器响应时间" name="service_response_time" source="lossResponseTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+<field desc="http慢请求次数" name="slow_num" source="slowNum" valueType="long" type="metric" expr="countif$(errorType=0&first_package>app_first_time &requestType=0)"/>
+<field desc="真实socketDNS次数" name="socket_dns_num" source="socketDnsNum" valueType="long" type="metric" expr="countif$(errorType=0&requestType=1)"/>
+<field desc="真实socketdns时间;（单位S）" name="socket_dns_time" source="lossDnsTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=1)"/>
+<field desc="socket错误请求次数" name="socket_error_num" source="socketErrorNum" valueType="long" type="metric" expr="countif$(errorType>0 & requestType>0 )"/>
+<field desc="socket正确请求次数" name="socket_request_num" source="socketRequestNum" valueType="long" type="metric" expr="countif$(errorType=0&requestType=1)"/>
+<field desc="真实sockettcp次数" name="socket_tcp_num" source="socketTcpNum" valueType="long" type="metric" expr="countif$(errorType=0&requestType=1)"/>
+<field desc="真实sockettcp时间;（单位S）" name="socket_tcp_time" source="lossTcpTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=1)"/>
+<field desc="ssl时间;（单位S）" name="ssl_time" source="lossSslTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+<field desc="ssl次数" name="ssl_num" source="sslNum" valueType="long" type="metric" expr="countif$(errorType=0&requestType=0&ssl_time>0)"/>
+<field desc="TCP时间;（单位S）" name="tcp_time" source="lossTcpTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+<field desc="tcp次数" name="tcp_num" source="tcpNum" valueType="long" type="metric" expr="countif$(errorType=0&requestType=0&tcp_time>0)"/>
+<field desc="首包时间;（单位S）" name="fir_package_time" source="firstPackage" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+<field desc="整体性能" name="total_time" source="totalTime" valueType="double" type="metric" expr="sumif$(errorType=0&requestType=0)"/>
+</tables>
+</schema>

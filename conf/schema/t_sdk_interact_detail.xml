@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <tables name="sdk_interact_detail">
+        <!-- 内置字段 需要name转id -->
+        <field desc="APPID" name="APPID" source="appid" valueType="long" type="dimension"/>
+        <!-- 内置字段 需要name转id -->
+        <field desc="APP版本" name="APP_VER_ID" source="appVerId" valueType="long" type="dimension"/>
+        <!-- 内置字段通过band+model+patarn缓存转换为id -->
+        <field desc="品牌ID" name="BRAND_ID" source="brandId" valueType="long" type="dimension"/>
+        <!-- 内置字段 需要name转id -->
+        <field desc="" name="FULL_METHOD_CODE" source="functionCode" valueType="long" type="dimension"/>
+        <field desc="完整的方法名" name="FULL_METHOD" source="fullMethod" valueType="string" type="dimension"/>
+        <!-- 内置字段 需要method跟thread交集取值 -->
+        <field desc="函数标记（0：前端、1：后端） " name="F_FLAG" source="functionType:" valueType="long" type="dimension"/>
+        <!-- 内置字段 去掉类获取方法并需要name转id -->
+        <field desc="方法id" name="F_ID" source="methodId" valueType="long" type="dimension"/>
+        <!-- 内置字段通过os缓存转换为id -->
+        <field desc="操作系统ID" name="OS_ID" source="osId" valueType="long" type="dimension"/>
+        <!-- 内置字段 需要根据startTime匹配并根据name转id -->
+        <field desc="视图ID" name="VIEW_ID" source="viewId" valueType="long" type="dimension"/>
+        <field desc="" name="ACCESS_NUM" source="ACCESS_NUM" valueType="long" type="metric" expr="sum$(1)"/>
+        <!-- 内置字段 通过方法结束时间-视图开始时间 -->
+        <field desc="慢交互时间" name="INTERACT_TIME" source="interactTime" valueType="double" type="metric" expr="sum"/>
+    </tables>
+</schema>

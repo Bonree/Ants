@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bonree.ants</groupId>
+	<artifactId>Bonree_Ants</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.shade.version>1.4</maven.shade.version>
+        <maven.source.version>2.2.1</maven.source.version>
+        <storm.version>1.0.2</storm.version>
+        <kafka.version>0.10.1.1</kafka.version>
+        <jedis.proxy.version>3.4.5-SNAPSHOT</jedis.proxy.version>
+        <ants.commons.version>0.0.1-SNAPSHOT</ants.commons.version>
+        <ants.plugin.version>0.0.1-SNAPSHOT</ants.plugin.version>
+		<commons.lang3.version>3.5</commons.lang3.version>
+        <curator.version>2.9.1</curator.version>
+        <kryo.serializers.version>0.42</kryo.serializers.version>
+        <quartz.version>2.0.2</quartz.version>
+        <jsoup.version>1.10.1</jsoup.version>
+        <fastjson.version>1.2.56</fastjson.version>
+        <mysql.version>5.1.18</mysql.version>
+        <c3p0.version>0.9.2</c3p0.version>
+        <logback.version>1.2.3</logback.version>
+		<security.version>0.0.1-SNAPSHOT</security.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>nexus</name>
+			<url>http://192.168.4.201:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>User Project SNAPSHOTS</name>
+			<url>http://192.168.4.201:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>Calc_Engine</module>
+		<module>Storage_Engine</module>
+		<module>Plugins</module>
+		<module>Commons</module>
+        <module>Extention_Engine</module>
+    </modules>
+</project>
